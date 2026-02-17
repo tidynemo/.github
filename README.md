@@ -19,13 +19,13 @@ This is the nemo-verse organization profile repository. Below is an overview of 
 
 ## 🧬✨ tidywigits - Tidy WiGiTS Outputs
 
-[tidywigits](https://github.com/umccr/tidywigits) is an R package that parses and tidies outputs from the [WiGiTS](https://github.com/hartwigmedical/hmftools) suite of genome and transcriptome analysis tools for cancer research and diagnostics.
+[tidywigits](https://github.com/umccr/tidywigits) is an R package that parses and tidies outputs from the [WiGiTS (hmftools)](https://github.com/hartwigmedical/hmftools) suite of genome and transcriptome analysis tools for cancer research and diagnostics, created by the Hartwig Medical Foundation.
 
 **Key Features:**
-- Parses outputs from WiGiTS tools (Hartwig Medical Foundation)
+- Parses outputs from the hmftools suite (WiGiTS tools)
 - Tidies cancer genomics analysis results
 - Supports multiple output formats (Apache Parquet, PostgreSQL, TSV, RDS)
-- Comprehensive coverage of WiGiTS tool suite outputs
+- Comprehensive coverage of hmftools suite outputs
 
 **Links:**
 - 📚 Documentation: https://umccr.github.io/tidywigits
