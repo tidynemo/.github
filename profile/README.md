@@ -9,16 +9,16 @@ R packages for tidying bioinformatic pipeline outputs.
 
 [nemo]: https://github.com/tidynemo/nemo
 [nemo-docs]: https://tidynemo.github.io/nemo
-[nemo-conda]: https://anaconda.org/tidynemo/r-nemo
-[nemo-conda-date-badge]: https://anaconda.org/tidynemo/r-nemo/badges/latest_release_date.svg
-[nemo-conda-ver-badge]: https://anaconda.org/tidynemo/r-nemo/badges/version.svg
+[nemo-conda]: https://anaconda.org/umccr/r-nemo
+[nemo-conda-date-badge]: https://anaconda.org/umccr/r-nemo/badges/latest_release_date.svg
+[nemo-conda-ver-badge]: https://anaconda.org/umccr/r-nemo/badges/version.svg
 [nemo-gha]: https://github.com/tidynemo/nemo/actions/workflows/deploy.yaml
 [nemo-gha-badge]: https://github.com/tidynemo/nemo/actions/workflows/deploy.yaml/badge.svg
 
 [tidywigits]: https://github.com/tidynemo/tidywigits
 [tw-docs]: https://tidynemo.github.io/tidywigits
-[tw-conda]: https://anaconda.org/tidynemo/r-tidywigits
-[tw-conda-date-badge]: https://anaconda.org/tidynemo/r-tidywigits/badges/latest_release_date.svg
-[tw-conda-ver-badge]: https://anaconda.org/tidynemo/r-tidywigits/badges/version.svg
+[tw-conda]: https://anaconda.org/umccr/r-tidywigits
+[tw-conda-date-badge]: https://anaconda.org/umccr/r-tidywigits/badges/latest_release_date.svg
+[tw-conda-ver-badge]: https://anaconda.org/umccr/r-tidywigits/badges/version.svg
 [tw-gha]: https://github.com/tidynemo/tidywigits/actions/workflows/deploy.yaml
 [tw-gha-badge]: https://github.com/tidynemo/tidywigits/actions/workflows/deploy.yaml/badge.svg
