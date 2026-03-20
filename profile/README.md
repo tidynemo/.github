@@ -1,8 +1,24 @@
-# nemo-verse
+# TidyNemo
 
 R packages for tidying bioinformatic pipeline outputs.
 
-| Repository | Description | Docs | Badges |
+| Repository | Description | Docs | Status |
 |------------|-------------|------|--------|
-| [nemo](https://github.com/umccr/nemo) | Building blocks for parsing, tidying, and writing bioinformatic pipeline results | [📚 Docs](https://umccr.github.io/nemo) | [![conda-latest](https://anaconda.org/umccr/r-nemo/badges/latest_release_date.svg)](https://anaconda.org/umccr/r-nemo) [![gha](https://github.com/umccr/nemo/actions/workflows/deploy.yaml/badge.svg)](https://github.com/umccr/nemo/actions/workflows/deploy.yaml) |
-| [tidywigits](https://github.com/umccr/tidywigits) | Parse and tidy outputs from the WiGiTS (hmftools) suite for cancer genomics | [📚 Docs](https://umccr.github.io/tidywigits) | [![conda-latest](https://anaconda.org/umccr/r-tidywigits/badges/latest_release_date.svg)](https://anaconda.org/umccr/r-tidywigits) [![gha](https://github.com/umccr/tidywigits/actions/workflows/deploy.yaml/badge.svg)](https://github.com/umccr/tidywigits/actions/workflows/deploy.yaml) |
+| [nemo] | Building blocks for parsing, tidying, and writing bioinformatic pipeline results | [📚 Docs][nemo-docs] | [![conda-latest][nemo-conda-date-badge]][nemo-conda] [![Anaconda][nemo-conda-ver-badge]][nemo-conda] [![gha][nemo-gha-badge]][nemo-gha] |
+| [tidywigits] | Parse and tidy outputs from the WiGiTS (hmftools) suite for cancer genomics | [📚 Docs][tw-docs] | [![conda-latest][tw-conda-date-badge]][tw-conda] [![Anaconda][tw-conda-ver-badge]][tw-conda] [![gha][tw-gha-badge]][tw-gha] |
+
+[nemo]: https://github.com/tidynemo/nemo
+[nemo-docs]: https://tidynemo.github.io/nemo
+[nemo-conda]: https://anaconda.org/tidynemo/r-nemo
+[nemo-conda-date-badge]: https://anaconda.org/tidynemo/r-nemo/badges/latest_release_date.svg
+[nemo-conda-ver-badge]: https://anaconda.org/tidynemo/r-nemo/badges/version.svg
+[nemo-gha]: https://github.com/tidynemo/nemo/actions/workflows/deploy.yaml
+[nemo-gha-badge]: https://github.com/tidynemo/nemo/actions/workflows/deploy.yaml/badge.svg
+
+[tidywigits]: https://github.com/tidynemo/tidywigits
+[tw-docs]: https://tidynemo.github.io/tidywigits
+[tw-conda]: https://anaconda.org/tidynemo/r-tidywigits
+[tw-conda-date-badge]: https://anaconda.org/tidynemo/r-tidywigits/badges/latest_release_date.svg
+[tw-conda-ver-badge]: https://anaconda.org/tidynemo/r-tidywigits/badges/version.svg
+[tw-gha]: https://github.com/tidynemo/tidywigits/actions/workflows/deploy.yaml
+[tw-gha-badge]: https://github.com/tidynemo/tidywigits/actions/workflows/deploy.yaml/badge.svg
