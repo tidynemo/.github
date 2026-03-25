@@ -1,0 +1,87 @@
+name: pkgdown Deploy
+
+on:
+  workflow_call:
+    inputs:
+      pkg_name:
+        description: 'Name of pkg'
+        required: true
+        type: string
+      pkg_version:
+        description: 'Version of pkg'
+        required: true
+        type: string
+      dir_conda_env_yaml:
+        required: false
+        type: string
+        default: deploy/conda/env/yaml
+      dvc:
+        required: false
+        type: boolean
+        default: false
+      mermaid:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  pkgdown:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    permissions:
+      contents: write
+
+    steps:
+      - name: 🤖 Generate app token
+        uses: actions/create-github-app-token@v3
+        id: app-token2
+        with:
+          app_id: ${{ vars.BOT1_APP_ID }}
+          private_key: ${{ secrets.BOT1_APP_PRIVATE_KEY }}
+      - name: 🚚 Code checkout
+        uses: actions/checkout@v6
+        with:
+          ref: v${{ inputs.pkg_version }}
+          token: ${{ steps.app-token2.outputs.token }} # branch write override
+          persist-credentials: false
+      - name: DVC setup
+        if: inputs.dvc == true
+        uses: iterative/setup-dvc@v2
+      - name: DVC pull
+        if: inputs.dvc == true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          AWS_REGION: auto
+        run: |
+          dvc pull
+          ls -l inst/extdata/*
+      - name: 👾 Miniforge setup
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          environment-file: ${{ inputs.dir_conda_env_yaml }}/pkgdown.yaml
+          activate-environment: pkgdown_env
+          miniforge-version: latest
+      - name: 📦 Install R pkg from source
+        if: inputs.dvc == true
+        run: R CMD INSTALL --no-test-load .
+      - name: 🖼️ Install Mermaid CLI
+        if: inputs.mermaid == true
+        run: npm install -g @mermaid-js/mermaid-cli
+      - name: 🎨 Generate schema ER SVGs
+        if: inputs.mermaid == true
+        run: |
+          echo '{"args":["--no-sandbox"]}' > /tmp/puppeteer.json
+          Rscript inst/scripts/gen_er_svgs.R /tmp/puppeteer.json
+      - name: 🌐 Website publish
+        env:
+          APP_ID: ${{ vars.BOT1_APP_ID }}
+        run: |
+          Rscript -e "list.files(system.file('extdata', package = '${{ inputs.pkg_name }}'), recursive = TRUE)"
+          git config --local user.email "${APP_ID}+tidywf-ci-bot[bot]@users.noreply.github.com"
+          git config --local user.name "tidywf-ci-bot[bot]"
+          Rscript -e "pkgdown::deploy_to_branch(pkg = '.', new_process = FALSE)"
