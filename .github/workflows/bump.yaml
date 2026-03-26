@@ -27,8 +27,8 @@ jobs:
         uses: actions/create-github-app-token@v3
         id: app-token
         with:
-          app_id: ${{ vars.BOT1_APP_ID }}
-          private_key: ${{ secrets.BOT1_APP_PRIVATE_KEY }}
+          app-id: ${{ vars.BOT1_APP_ID }}
+          private-key: ${{ secrets.BOT1_APP_PRIVATE_KEY }}
       - name: 🚚 Code checkout
         uses: actions/checkout@v6
         with:
