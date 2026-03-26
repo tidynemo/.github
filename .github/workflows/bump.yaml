@@ -13,6 +13,10 @@ on:
         required: false
         type: string
         default: deploy/conda/env/yaml
+      dvc:
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   bump:
@@ -40,6 +44,17 @@ jobs:
           environment-file: ${{ inputs.dir_conda_env_yaml }}/pkgdown.yaml
           activate-environment: pkgdown_env
           miniforge-version: latest
+      - name: DVC setup
+        if: inputs.dvc == true
+        uses: iterative/setup-dvc@v2
+      - name: DVC pull
+        if: inputs.dvc == true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          AWS_REGION: auto
+        run: dvc pull
       - name: 📦 Install R pkg from source
         run: R CMD INSTALL --no-test-load .
       - name: 🐍 Install bump-my-version
