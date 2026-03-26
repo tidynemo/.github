@@ -45,7 +45,6 @@ jobs:
         with:
           ref: v${{ inputs.pkg_version }}
           token: ${{ steps.app-token2.outputs.token }} # branch write override
-          persist-credentials: false
       - name: DVC setup
         if: inputs.dvc == true
         uses: iterative/setup-dvc@v2

@@ -46,7 +46,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token1.outputs.token }} # branch write override
-          persist-credentials: false
       - name: 👾 Miniforge setup
         uses: conda-incubator/setup-miniconda@v3
         with:
